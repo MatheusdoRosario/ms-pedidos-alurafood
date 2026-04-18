@@ -4,17 +4,25 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/alurafood-pedidos?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/alurafood-pedidos?createDatabaseIfNotExist=true&useSSL=true&serverTimezone=UTC
     username: root
     password: ${DB_PASSWORD}
 
   jpa:
     show-sql: true
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8081/eureka/
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
-server:
-  port: 0
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8081/eureka/
+#  instance:
+#    instance-id: ${spring.application.name}:${random.value}
+
+#server:
+#  port: 0
